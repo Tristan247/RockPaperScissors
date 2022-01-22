@@ -39,6 +39,7 @@ public class FireBaseManager : MonoBehaviour
 
         uiManager.roomCode.text = key;
         uiManager.roomCode.readOnly = true;
+        uiManager.MainMenu.SetActive(true);
     }
 
     public void JoinGame()
@@ -53,11 +54,12 @@ public class FireBaseManager : MonoBehaviour
               }
               else if (task.IsCompleted)
               {
-                  Debug.Log("Aw gnib");
+                  Debug.Log("Ok");
                   User user = new User(uiManager.inputName.text);
                   FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + key + "/player2").SetRawJsonValueAsync(JsonUtility.ToJson(user));
               }
           });
+        uiManager.MainMenu.SetActive(false);
     }
 
     void LobbyListener(object sender, ValueChangedEventArgs args)
@@ -67,5 +69,6 @@ public class FireBaseManager : MonoBehaviour
             Debug.LogError(args.DatabaseError.Message);
             return;
         }
+        myLobby = JsonUtility.FromJson<Lobby>(args.Snapshot.GetRawJsonValue());
     }
 }
