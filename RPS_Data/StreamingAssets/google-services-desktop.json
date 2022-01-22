@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "214679631567",
+    "firebase_url": "https://rockpaperscissors-62563-default-rtdb.firebaseio.com",
+    "project_id": "rockpaperscissors-62563",
+    "storage_bucket": "rockpaperscissors-62563.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:214679631567:android:0b6b07b43c8afa13ab29ba",
+        "android_client_info": {
+          "package_name": "com.RPS"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "214679631567-oovdavhhslthmcvfook9atpvivlfkmnb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAjnWXCLIdyTCyMFIFNlcm8c7frru_J7gk"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "214679631567-oovdavhhslthmcvfook9atpvivlfkmnb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
