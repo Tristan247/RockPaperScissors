@@ -57,9 +57,15 @@ public class FireBaseManager : MonoBehaviour
                   Debug.Log("Ok");
                   User user = new User(uiManager.inputName.text);
                   FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + key + "/player2").SetRawJsonValueAsync(JsonUtility.ToJson(user));
+                  FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + key + "/startGame").SetValueAsync(true);
               }
           });
         uiManager.MainMenu.SetActive(false);
+        uiManager.Game.SetActive(true);
+
+        FirebaseDatabase.DefaultInstance
+        .GetReference("lobbies/" + key)
+        .ValueChanged += LobbyListener;
     }
 
     void LobbyListener(object sender, ValueChangedEventArgs args)
@@ -70,5 +76,18 @@ public class FireBaseManager : MonoBehaviour
             return;
         }
         myLobby = JsonUtility.FromJson<Lobby>(args.Snapshot.GetRawJsonValue());
+
+        if(!uiManager.Game.activeSelf && myLobby.startGame)
+        {
+            uiManager.MainMenu.SetActive(false);
+            uiManager.Game.SetActive(true);
+        }
+
+        uiManager.score1.text = myLobby.player1.score.ToString();
+        uiManager.score2.text = myLobby.player2.score.ToString();
+        uiManager.playerName1.text = myLobby.player1.name;
+        uiManager.playerName2.text = myLobby.player2.name;
+        uiManager.winner.text = myLobby.winner;
+        uiManager.timer.text = myLobby.timer.ToString();
     }
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class UIManager : MonoBehaviour
     public InputField inputName, roomCode;
     private FireBaseManager fbManager;
     public Button playBtn, joinBtn;
+    public TMP_Text score1, score2, playerName1, playerName2, winner;
+    public Text timer;
 
     void Start()
     {
