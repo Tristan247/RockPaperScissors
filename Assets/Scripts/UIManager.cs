@@ -8,6 +8,7 @@ public class UIManager : MonoBehaviour
 {
     public GameObject MainMenu;
     public GameObject Game;
+    public GameObject Shop;
     public InputField inputName, roomCode;
     private FireBaseManager fbManager;
     public Button playBtn, joinBtn;
@@ -37,5 +38,10 @@ public class UIManager : MonoBehaviour
         fbManager.JoinGame();
         playBtn.interactable = false;
         joinBtn.interactable = false;
+    }
+
+    public void Purchase()
+    {
+        Shop.SetActive(true);
     }
 }
