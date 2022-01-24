@@ -1449,6 +1449,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ebd800789405c174dbda77d2438dcba5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  key: 
 --- !u!4 &726960856
 Transform:
   m_ObjectHideFlags: 0
@@ -1500,6 +1501,7 @@ MonoBehaviour:
   player1Choice: 
   player2Choice: 
   player: 0
+  fbManager: {fileID: 726960855}
 --- !u!1 &736326966
 GameObject:
   m_ObjectHideFlags: 0
@@ -4564,6 +4566,7 @@ MonoBehaviour:
   timeValue: 10
   timerText: {fileID: 2028241369}
   game: {fileID: 726960858}
+  called: 0
 --- !u!114 &2028241369
 MonoBehaviour:
   m_ObjectHideFlags: 0

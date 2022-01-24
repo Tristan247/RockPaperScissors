@@ -7,7 +7,7 @@ using Firebase.Database;
 public class FireBaseManager : MonoBehaviour
 {
     Lobby myLobby;
-    private string key;
+    public string key;
     DatabaseReference reference;
     private UIManager uiManager;
     Game game;

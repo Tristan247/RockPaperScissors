@@ -8,6 +8,7 @@ public class Timer : MonoBehaviour
     public float timeValue = 90;
     public Text timerText;
     public Game game;
+    public bool called;
 
     private void Start()
     {
@@ -23,7 +24,12 @@ public class Timer : MonoBehaviour
         else
         {
             timeValue = 0;
-            game.Play();
+            if(!called)
+            {
+                game.Play();
+                called = true;
+            }
+            
         }
 
         DisplayTime(timeValue);

@@ -14,6 +14,7 @@ public class Game : MonoBehaviour
     public bool player;
     DatabaseReference reference;
     Lobby tempLobby;
+    public FireBaseManager fbManager;
 
     private void Start()
     {
@@ -22,6 +23,7 @@ public class Game : MonoBehaviour
 
     public void Play()
     {
+        Debug.Log("Hello1");
         reference.GetValueAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted)
             {
@@ -44,14 +46,18 @@ public class Game : MonoBehaviour
                     case "Rock":
                         player1Score = player1Score + 1;
                         player2Score = player2Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player1/score").SetValueAsync(player1Score);
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player2/score").SetValueAsync(player2Score);
                         break;
 
                     case "Paper":
                         player2Score = player2Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player2/score").SetValueAsync(player2Score);
                         break;
 
                     case "Scissors":
                         player1Score = player1Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player1/score").SetValueAsync(player1Score);
                         break;
                 }
                 break;
@@ -61,15 +67,19 @@ public class Game : MonoBehaviour
                 {
                     case "Rock":
                         player1Score = player1Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player1/score").SetValueAsync(player1Score);
                         break;
 
                     case "Paper":
                         player1Score = player1Score + 1;
                         player2Score = player2Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player1/score").SetValueAsync(player1Score);
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player2/score").SetValueAsync(player2Score);
                         break;
 
                     case "Scissors":
                         player2Score = player2Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player2/score").SetValueAsync(player2Score);
                         break;
                 }
                 break;
@@ -79,15 +89,19 @@ public class Game : MonoBehaviour
                 {
                     case "Rock":
                         player2Score = player2Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player2/score").SetValueAsync(player2Score);
                         break;
 
                     case "Paper":
                         player1Score = player1Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player1/score").SetValueAsync(player1Score);
                         break;
 
                     case "Scissors":
                         player1Score = player1Score + 1;
                         player2Score = player2Score + 1;
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player2/score").SetValueAsync(player2Score);
+                        FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + fbManager.key + "/player1/score").SetValueAsync(player1Score);
                         break;
                 }
                 break;
