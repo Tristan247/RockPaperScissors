@@ -81,6 +81,11 @@ public class FireBaseManager : MonoBehaviour
         }
         myLobby = JsonUtility.FromJson<Lobby>(args.Snapshot.GetRawJsonValue());
 
+        if(myLobby == null)
+        {
+            return;
+        }
+
         if(!uiManager.Game.activeSelf && myLobby.startGame)
         {
             uiManager.MainMenu.SetActive(false);

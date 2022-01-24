@@ -87,8 +87,19 @@ public class Shop : MonoBehaviour
             image = storageReference.Child("B7.png");
         }
 
-       // const long maxAllowedSize = 4 * 1024 * 1024;
+        // const long maxAllowedSize = 4 * 1024 * 1024;
 
+
+        const long maxAllowedSize = 1 * 1024 * 1024;
+        Task task = imageRef.GetBytesAsync(maxAllowedSize, new StorageProgress<DownloadState>(state => {
+            // called periodically during the download
+            Debug.Log(String.Format(
+                "Progress: {0} of {1} bytes transferred.",
+                state.BytesTransferred,
+                state.TotalByteCount
+            ));
+            progress.text = ((float)state.BytesTransferred / (float)state.TotalByteCount) * 100 + "%";
+        }), CancellationToken.None);
 
         image.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
         {

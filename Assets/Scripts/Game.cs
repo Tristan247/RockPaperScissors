@@ -21,10 +21,10 @@ public class Game : MonoBehaviour
         reference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    public void Play()
+    public async void Play()
     {
         Debug.Log("Hello1");
-        reference.GetValueAsync().ContinueWithOnMainThread(task => {
+        await reference.Child("lobbies/").Child(fbManager.key).GetValueAsync().ContinueWithOnMainThread(task => {
             if (task.IsFaulted)
             {
                 return;
@@ -38,6 +38,8 @@ public class Game : MonoBehaviour
             }
         });
 
+        Debug.Log(player1Choice);
+        Debug.Log(player2Choice);
         switch (player1Choice)
         {
             case "Rock":
