@@ -7,12 +7,17 @@ using UnityEngine.Networking;
 using Firebase;
 using Firebase.Extensions;
 using Firebase.Storage;
+using System.Threading.Tasks;
+using System.Threading;
+using TMPro;
 
 public class Shop : MonoBehaviour
 {
     public RawImage rawImage1, rawImage2, rawImage3, rawImage4, rawImage5;
     FirebaseStorage storage;
     StorageReference storageReference;
+    public TMP_Text loading, buyItem;
+
 
     IEnumerator LoadImage(string MediaUrl, int type)
     {
@@ -61,6 +66,8 @@ public class Shop : MonoBehaviour
 
     public void BuyItem(int type)
     {
+        loading.text = "0%";
+        buyItem.text = "";
         storage = FirebaseStorage.DefaultInstance;
         storageReference = storage.GetReferenceFromUrl("gs://rockpaperscissors-62563.appspot.com");
 
@@ -90,21 +97,21 @@ public class Shop : MonoBehaviour
         // const long maxAllowedSize = 4 * 1024 * 1024;
 
 
-        const long maxAllowedSize = 1 * 1024 * 1024;
-        Task task = imageRef.GetBytesAsync(maxAllowedSize, new StorageProgress<DownloadState>(state => {
+        const long maxAllowedSize = 4 * 1024 * 1024;
+        Task task = image.GetBytesAsync(maxAllowedSize, new StorageProgress<DownloadState>(state => {
             // called periodically during the download
             Debug.Log(String.Format(
                 "Progress: {0} of {1} bytes transferred.",
                 state.BytesTransferred,
                 state.TotalByteCount
             ));
-            progress.text = ((float)state.BytesTransferred / (float)state.TotalByteCount) * 100 + "%";
-        }), CancellationToken.None);
-
-        image.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
+            loading.text = ((float)state.BytesTransferred / (float)state.TotalByteCount) * 100 + "%";
+        }), CancellationToken.None).ContinueWithOnMainThread(task =>
         {
             if (!task.IsFaulted && !task.IsCanceled)
             {
+                loading.text = "100%";
+                buyItem.text = "Item Purchased";
                 StartCoroutine(LoadImage(Convert.ToString(task.Result), type));
             }
             else
