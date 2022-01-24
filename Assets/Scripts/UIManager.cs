@@ -44,4 +44,10 @@ public class UIManager : MonoBehaviour
     {
         Shop.SetActive(true);
     }
+
+    public void Back()
+    {
+        Shop.SetActive(false);
+        MainMenu.SetActive(true);
+    }
 }
