@@ -87,6 +87,9 @@ public class Shop : MonoBehaviour
             image = storageReference.Child("B7.png");
         }
 
+       // const long maxAllowedSize = 4 * 1024 * 1024;
+
+
         image.GetDownloadUrlAsync().ContinueWithOnMainThread(task =>
         {
             if (!task.IsFaulted && !task.IsCanceled)

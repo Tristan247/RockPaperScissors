@@ -1392,6 +1392,7 @@ GameObject:
   - component: {fileID: 726960855}
   - component: {fileID: 726960854}
   - component: {fileID: 726960857}
+  - component: {fileID: 726960858}
   m_Layer: 0
   m_Name: GameManager
   m_TagString: Untagged
@@ -1467,6 +1468,25 @@ MonoBehaviour:
   rawImage3: {fileID: 2146475805}
   rawImage4: {fileID: 935825373}
   rawImage5: {fileID: 736326968}
+--- !u!114 &726960858
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 726960853}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 34e911ff8af5cb548bacad609711b54b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Rock: {fileID: 21300000, guid: eae23fc79127d3c4788f52461397b98f, type: 3}
+  Paper: {fileID: 21300000, guid: dda145445be02f349ad8e3368603cbd7, type: 3}
+  Scissors: {fileID: 21300000, guid: c55529a9cec5a5e42b3d43b6fcba2445, type: 3}
+  player1Score: 0
+  player2Score: 0
+  player1Choice: 
+  player2Choice: 
 --- !u!1 &736326966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2046,7 +2066,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1114890037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4130,7 +4150,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1950363985
 RectTransform:
   m_ObjectHideFlags: 0
