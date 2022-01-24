@@ -7,6 +7,12 @@ public class Timer : MonoBehaviour
 {
     public float timeValue = 90;
     public Text timerText;
+    public Game game;
+
+    private void Start()
+    {
+        
+    }
 
     void Update()
     {
@@ -17,6 +23,7 @@ public class Timer : MonoBehaviour
         else
         {
             timeValue = 0;
+            game.Play();
         }
 
         DisplayTime(timeValue);

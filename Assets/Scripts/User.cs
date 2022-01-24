@@ -8,6 +8,7 @@ public class User
 {
     public string name;
     public int score;
+    public string choice;
 
     public User(string name)
     {

@@ -10,12 +10,14 @@ public class FireBaseManager : MonoBehaviour
     private string key;
     DatabaseReference reference;
     private UIManager uiManager;
+    Game game;
 
 
     void Start()
     {
         uiManager = FindObjectOfType<UIManager>();
         reference = FirebaseDatabase.DefaultInstance.RootReference;
+        game = FindObjectOfType<Game>();
     }
 
     void Update()
@@ -25,6 +27,7 @@ public class FireBaseManager : MonoBehaviour
 
     public void CreateGame()
     {
+        game.player = false;
         myLobby = new Lobby();
         User user = new User(uiManager.inputName.text);
         myLobby.player1 = user;
@@ -44,6 +47,7 @@ public class FireBaseManager : MonoBehaviour
 
     public void JoinGame()
     {
+        game.player = true;
         key = uiManager.roomCode.text;
         FirebaseDatabase.DefaultInstance
           .GetReference("lobbies/" + key)
@@ -89,5 +93,19 @@ public class FireBaseManager : MonoBehaviour
         uiManager.playerName2.text = myLobby.player2.name;
         uiManager.winner.text = myLobby.winner;
         uiManager.timer.text = myLobby.timer.ToString();
+    }
+
+    public void Buttons(string choice)
+    {
+        if(game.player == false)
+        {
+            myLobby.player1.choice = choice;
+            FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + key + "/player1/choice").SetValueAsync(myLobby.player1.choice);
+        }
+        else
+        {
+            myLobby.player2.choice = choice;
+            FirebaseDatabase.DefaultInstance.GetReference("lobbies/" + key + "/player2/choice").SetValueAsync(myLobby.player2.choice);
+        }
     }
 }

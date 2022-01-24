@@ -659,7 +659,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 271289269}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 726960855}
+        m_TargetAssemblyTypeName: FireBaseManager, Assembly-CSharp
+        m_MethodName: Buttons
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 3
+          m_FloatArgument: 0
+          m_StringArgument: Scissors
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &359823988
 GameObject:
   m_ObjectHideFlags: 0
@@ -1487,6 +1499,7 @@ MonoBehaviour:
   player2Score: 0
   player1Choice: 
   player2Choice: 
+  player: 0
 --- !u!1 &736326966
 GameObject:
   m_ObjectHideFlags: 0
@@ -2066,7 +2079,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1114890037
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2112,7 +2125,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1149321839
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3310,7 +3323,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1740803739}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 726960855}
+        m_TargetAssemblyTypeName: FireBaseManager, Assembly-CSharp
+        m_MethodName: Buttons
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: Rock
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &1766311394
 GameObject:
   m_ObjectHideFlags: 0
@@ -4538,6 +4563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeValue: 10
   timerText: {fileID: 2028241369}
+  game: {fileID: 726960858}
 --- !u!114 &2028241369
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4967,7 +4993,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2091495683}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 726960855}
+        m_TargetAssemblyTypeName: FireBaseManager, Assembly-CSharp
+        m_MethodName: Buttons
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: Paper
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2125740695
 GameObject:
   m_ObjectHideFlags: 0
